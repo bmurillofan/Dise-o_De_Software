@@ -8,9 +8,9 @@ public class problema_1 {
 		int altoM2;
 		int nPiezas;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingrese tamaño M1 (Ancho)");
+		System.out.println("Ingrese tamaÃ±o M1 (Ancho)");
 		anchoM1 = sc.nextInt();
-		System.out.println("Ingrese tamaño M2 (Alto)");
+		System.out.println("Ingrese tamaÃ±o M2 (Alto)");
 		altoM2 = sc.nextInt();
 		System.out.println("Ingrese la cantidad de piezas");
 		nPiezas = sc.nextInt();
@@ -96,6 +96,7 @@ public class problema_1 {
 		
 		System.out.println("Beneficio Total: " + beneficioTotal);
 		System.out.println("Piezas: " + piezas);
+		System.out.println("Beneficios Individuales: " + benefi);
 	}
 
 }
