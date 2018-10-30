@@ -34,6 +34,7 @@ public class divide_y_vencer {
 			double m = 0;
 			double a = 0;
 			double b = 2;
+
 			System.out.println("Ingrese el intervalo a:");
 			a = sc.nextDouble();
 			System.out.println("Ingrese el intervalo b:");
