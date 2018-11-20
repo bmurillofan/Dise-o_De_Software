@@ -2,11 +2,11 @@ package voraces;
 
 import java.util.Scanner;
 
-public class divide_y_vencer {
+public class DivideVencer {
 
 		// Formula
 		public static double f(double x) {
-			return Math.pow(x, 3) + (2 * Math.pow(x, 2)) - 5;
+			return Math.pow(x, 3) + (2 * Math.pow(x, 2)) - (5*x) - 8;
 		}
 
 		public static void main(String[] args) {
@@ -16,8 +16,8 @@ public class divide_y_vencer {
 
 			// Variables
 			double m = 0;
-			double a = 0;
-			double b = 2;
+			double a = 0; 
+			double b = 2; 
 			System.out.println("Ingrese el intervalo a:");
 			a = sc.nextDouble();
 			System.out.println("Ingrese el intervalo b:");
@@ -28,7 +28,7 @@ public class divide_y_vencer {
 				
 				System.out.println("No es posible localizar un punto medio.");
 
-			} else {
+			} else {	
 
 				while (true) {
 					m = (a + b) / 2;

@@ -1,7 +1,7 @@
 package voraces;
 import java.util.*; 
 
-public class parcial_2 {
+public class Parcial2 {
 
 	public static void main(String[] args) {
 
@@ -68,12 +68,7 @@ public class parcial_2 {
 					indexMenorTarea = i;
 			}
 			
-			// Agrupar si hay más tiempos equivalentes al menor
-																												//			int cantidadTiemposIguales = 0;
-																												//			for (int i = 0; i < tiemposUnitarios.size(); i++) {
-																												//				if (Integer.parseInt(tiemposUnitarios.get(indexMenorTarea)) == Integer.parseInt(tiemposUnitarios.get(i)))
-																												//					cantidadTiemposIguales++;
-																												//			}	
+			// Agrupar si hay mï¿½s tiempos equivalentes al menor
 			for (int i = 0; i < tiemposUnitarios.size(); i++) {
 				if (Integer.parseInt(tiemposUnitarios.get(indexMenorTarea)) == Integer.parseInt(tiemposUnitarios.get(i)))
 					agruparTiempos.add( tiemposUnitarios.get(i) + ',' + beneficios.get(i) );
@@ -108,22 +103,20 @@ public class parcial_2 {
 			agruparTiempos.clear();
 			indexMenorTarea = 0;																													//			cantidadTiemposIguales = 0;
 			indexMayorBeneficio = 0;
-			for (String item : beneficios)
-				System.out.print(item + " ");
-			System.out.println("");
-			for (String item : tiemposUnitarios)
-				System.out.print(item + " ");
-			System.out.println("");
+			
 	}
 			
 			//resultadosExtraidos.remove(resultadosExtraidos.size()-1);
 			// Fin
 		System.out.println("Resultados");
-			for (String item : resultadosExtraidos) {
-				System.out.print("Se ejecuta la tarea con tiempo: " + item.split(",")[0] + " Obteniendo una ganancia de: " + item.split(",")[1]);
-				System.out.println();
-			}
-			System.out.println("");
+		int gananciaTotal = 0;
+		for (String item : resultadosExtraidos) {
+			System.out.print("Se ejecuta la tarea con tiempo: " + item.split(",")[0] + " Obteniendo una ganancia de: " + item.split(",")[1]);
+			System.out.println();
+			gananciaTotal+= Integer.parseInt(item.split(",")[1]);
+		}
+		System.out.println("");
+		System.out.println("Ganancia Total:" + gananciaTotal);
 	}
 
 }

@@ -1,7 +1,7 @@
 package voraces;
 import java.util.Scanner;
 
-public class problema_1 {
+public class Problema1 {
 
 	public static void main(String[] args) {
 		int anchoM1;
