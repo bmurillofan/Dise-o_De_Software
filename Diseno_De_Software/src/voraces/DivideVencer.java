@@ -3,6 +3,13 @@ package voraces;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+<<<<<<< HEAD:Diseno_De_Software/src/voraces/DivideVencer.java
+public class DivideVencer {
+
+		// Formula
+		public static double f(double x) {
+			return Math.pow(x, 3) + (2 * Math.pow(x, 2)) - (5*x) - 8;
+=======
 public class divide_y_vencer {
 	
 		static ArrayList<String> coeficientes = new ArrayList<String>();
@@ -33,6 +40,7 @@ public class divide_y_vencer {
 				a = m;
 				
 				recursividad(m, a, b);
+>>>>>>> dc618ec9976215bd03e10b08b5fdbd62a105e24a:Diseno_De_Software/src/voraces/divide_y_vencer.java
 		}
 
 		public static void main(String[] args) {
@@ -42,10 +50,15 @@ public class divide_y_vencer {
 
 			// Variables
 			double m = 0;
+<<<<<<< HEAD:Diseno_De_Software/src/voraces/DivideVencer.java
+			double a = 0; 
+			double b = 2; 
+=======
 			double a = 0;
 			double b = 2;
 			int grado = 0;
 			
+>>>>>>> dc618ec9976215bd03e10b08b5fdbd62a105e24a:Diseno_De_Software/src/voraces/divide_y_vencer.java
 			System.out.println("Ingrese el intervalo a:");
 			a = sc.nextDouble();
 			System.out.println("Ingrese el intervalo b:");
@@ -61,8 +74,28 @@ public class divide_y_vencer {
 			// Varificar que no son postivos
 			if (f(a,coeficientes) * f(b,coeficientes) > 0) {
 				System.out.println("No es posible localizar un punto medio.");
+<<<<<<< HEAD:Diseno_De_Software/src/voraces/DivideVencer.java
+
+			} else {	
+
+				while (true) {
+					m = (a + b) / 2;
+					if (Math.abs(f(m)) <= 0.001) {
+						System.out.println("Valor de corte en eje X: " + m);
+						System.out.println("Valor de m en corte:" + f(m));
+						return;
+					}
+					if (f(a) * f(m) < 0) {
+						b = m;
+					} else {
+						a = m;
+					}
+				}
+
+=======
 			} else {
 				recursividad(m, a, b);
+>>>>>>> dc618ec9976215bd03e10b08b5fdbd62a105e24a:Diseno_De_Software/src/voraces/divide_y_vencer.java
 			}
 
 		}
