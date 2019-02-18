@@ -1,90 +1,104 @@
 package voraces;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DivideVencer {
 
-	// Formula
-	public static double f(double x) {
-		return Math.pow(x, 3) + (2 * Math.pow(x, 2)) - (5 * x) - 8;
+	static double intervaloA = 0;
+	static double intervaloB = 0;
+	static double medio = 0;
+	static int[] valores;
+	static Scanner sc = new Scanner(System.in);
+
+	public static void coeficientes() {
+
+		int coeficiente;
+		int grado;
+
+		System.out.println("Ingrese el grado:");
+		grado = sc.nextInt();
+
+		valores = new int[grado + 1];
+		grado = valores.length - 1;
+
+		for (int i = 0; i < valores.length; i++) {
+
+			System.out.println("Ingrese el el coeficiente para X^" + grado--);
+			coeficiente = sc.nextInt();
+			valores[i] = coeficiente;
+
+		}
+		
+		// intervalos
+		System.out.println("Ingrese el intervalo a:");
+		intervaloA = sc.nextDouble();
+		System.out.println("Ingrese el intervalo b:");
+		intervaloB = sc.nextDouble();
+
 	}
 
-	static ArrayList<String> coeficientes = new ArrayList<String>();
 
-	// Formula
-	public static double f(double x, ArrayList<String> coeficientes) {
-		int index = 0;
-		double resultado = 0;
-		for (int i = coeficientes.size(); i > 0; i--) {
-			resultado += Double.parseDouble(coeficientes.get(index)) * Math.pow(x, i - 1);
-			index++;
+	public static void verificarNoPositivos() {
+
+		// Varificar que no son postivos
+		if (f(intervaloA) * f(intervaloB) > 0) {
+
+			System.out.println("No es posible localizar un punto medio.");
+
+		} else {
+
+			recursividad(medio, intervaloA, intervaloB);
+
 		}
-		return resultado;
 
+	}
+	
+	// Formula
+	public static double f(double x) {
+
+		double resultado = 0;
+		int exp = valores.length - 1;
+
+		for (int i = 0; i < valores.length; i++) {
+
+			int coeficiente = valores[i];
+			resultado += (coeficiente * Math.pow(x, exp));
+			exp--;
+
+		}
+
+		return resultado;
+	
 	}
 
 	public static void recursividad(double m, double a, double b) {
 
 		m = (a + b) / 2;
-		if (Math.abs(f(m, coeficientes)) <= 0.001) {
-//					System.out.println("Valor de m en corte:" + f(m));
+
+		if (Math.abs(f(m)) <= 0.001) {
+
 			System.out.println("Valor de corte en eje X: " + m);
 			return;
+
 		}
-		if (f(a, coeficientes) * f(m, coeficientes) < 0)
+
+		if (f(a) * f(m) < 0) {
+
 			b = m;
-		else
+
+		} else {
+
 			a = m;
+		}
 
 		recursividad(m, a, b);
-
 	}
 
 	public static void main(String[] args) {
 
-		// Imports
-		Scanner sc = new Scanner(System.in);
-
-		// Variables
-		double m = 0;
-		double a = 0;
-		double b = 2;
-		int grado = 0;
-
-		System.out.println("Ingrese el intervalo a:");
-		a = sc.nextDouble();
-		System.out.println("Ingrese el intervalo b:");
-		b = sc.nextDouble();
-		System.out.println("Ingrese el grado:");
-		grado = sc.nextInt();
-
-		for (int n = 0; n < (grado + 1); n++) {
-			System.out.println("Ingrese el coeficiente # " + (n + 1));
-			coeficientes.add(sc.next());
-		}
-
-		// Varificar que no son postivos
-		if (f(a, coeficientes) * f(b, coeficientes) > 0) {
-			System.out.println("No es posible localizar un punto medio.");
-
-		} else {
-
-			while (true) {
-				m = (a + b) / 2;
-				if (Math.abs(f(m)) <= 0.001) {
-					System.out.println("Valor de corte en eje X: " + m);
-					System.out.println("Valor de m en corte:" + f(m));
-					return;
-				}
-				if (f(a) * f(m) < 0) {
-					b = m;
-				} else {
-					a = m;
-				}
-			}
-
-		}
-
-	}
+		//Solicitud variables
+		coeficientes();
+		verificarNoPositivos();
+		
+	}	
 }
